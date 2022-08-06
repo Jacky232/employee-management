@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Update | Employees</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <!-- Boxicons CDN Link -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo_content">
+        <div class="logo">
+          <div class="logo_name">JACK MARMA</div>
+        </div>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+      <ul class="nav_list">
+        <li>
+          <a href="/employee/home/">
+            <i class="bx bx-grid-alt"></i>
+            <span class="links_name">Home</span>
+          </a>
+          <span class="tooltip">Home</span>
+        </li>
+        <li>
+          <a href="/employee/add-employee/">
+            <i class="bx bx-user"></i>
+            <span class="links_name">Add Employee</span>
+          </a>
+          <span class="tooltip">Add Employee</span>
+        </li>
+      </ul>
+    </div>
+    <div class="home_content">
+      <h1 class="text-center my-3">Update Employee</h1>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <div class="card bg-info">
+              <div class="card-body" style="background: #11101d;">
+                <form
+                  action="/employee/do-update-employee/{{emp.id}}"
+                  method="POST"
+                >
+                  {% csrf_token %}
+                  <div class="md-3">
+                    <label for="idnum" class="my-2 label-all">Employee ID</label>
+                    <input
+                      name="emp_id"
+                      type="text"
+                      class="form-control"
+                      id="idnum"
+                      required
+                      value="{{emp.idnum}}"
+                    />
+                  </div>
+                  <div class="md-3">
+                    <label for="name" class="my-2 label-all">Employee Name</label>
+                    <input
+                      name="emp_name"
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      required
+                      value="{{emp.name}}"
+                    />
+                  </div>
+                  <div class="md-3">
+                    <label for="email" class="my-2 label-all">Employee Email</label>
+                    <input
+                      name="emp_email"
+                      type="text"
+                      class="form-control"
+                      id="email"
+                      required
+                      value="{{emp.email}}"
+                    />
+                  </div>
+                  <div class="md-3">
+                    <label for="phone" class="my-2 label-all">Employee Phone Number</label>
+                    <input
+                      name="emp_phone"
+                      type="text"
+                      class="form-control"
+                      name=""
+                      id="phone"
+                      value="{{emp.phone}}"
+                    />
+                  </div>
+                  <div class="md-3">
+                    <label for="address" class="my-2 label-all">Employee Address</label>
+                    <textarea
+                      name="emp_address"
+                      id="address"
+                      rows="5"
+                      class="form-control"
+                    >
+{{emp.address}}</textarea
+                    >
+                  </div>
+
+                  <div class="container my-3 text-center">
+                    <button class="btn btn-success">Update Employee</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/static/js/main.js"></script>
+  </body>
+</html>
